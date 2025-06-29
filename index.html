@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mein Auslandsjahr – Unterstützen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #38c172;
+      --dark-green: #007b55;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--dark-green);
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: var(--dark-green);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .iban-box {
+      background-color: #f2f2f2;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      word-break: break-word;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--green);
+      border: none;
+      color: white;
+      padding: 0.4rem 0.7rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .progress-container {
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+      width: 100%;
+    }
+
+    .progress-bar {
+      background-color: var(--green);
+      height: 100%;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      transition: width 0.6s;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 3rem;
+      padding-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mein Auslandsjahr 🌍</h1>
+    <p>Danke, dass du mich auf diesem Weg unterstützt!</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Warum ich diese Reise mache</h2>
+      <p>
+        Ich bin Albert Montag und habe in diesem Sommer mein Abitur gemacht. In meiner Schulzeit sind mir die romanischen Sprachen ans Herz gewachsen und es ist der Wunsch gewachsen, nach der Schule ein Jahr in einem spanischsprachigen Land zu leben.
+So werde ich im Januar 2026 mit ‚weltwärts‘ nach Costa Rica gehen und dort in einem Umweltprojekt arbeiten, Land und Leute kennenlernen und außerhalb meiner gewohnten Umgebung sein und hoffentlich viel erleben. 
+
+Die Organisation erwartet von mir Eigeninitiative und so muss ich einen Anteil der Kosten mit Spendengeldern einwerben.
+Ich freue mich, dass Sie/Ihr mich dabei unterstützen wollen/wollt, denn diese Zeit ist eine Chance für mich, außerhalb meiner Komfortzone zu wachsen.
+Ich weiß Ihre/Eure Hilfe sehr zu schätzen und bedanke mich dafür heute schon und gebe Ihnen/Euch sehr gern einen Zwischenstand und Update meiner Reise.
+
+
+      </p>
+    </section>
+
+    <section>
+      <h2>Aktueller Spendenstand</h2>
+      <p>
+        Schon erreicht: <strong id="betrag-aktuell">0 €</strong> von <strong id="betrag-ziel">4.950 €</strong>
+      </p>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Spenden per Überweisung</h2>
+      <div class="iban-box" id="iban-box">
+        Empfänger: Albert Montag<br>
+        IBAN: <span id="iban">DE79 1009 0900 1233 6236 00</span><br>
+        Verwendungszweck: Auslandsjahr – [Dein Name]
+        <button class="copy-btn" onclick="copyIBAN()">Kopieren</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Spendenquittung anfordern</h2>
+      <p>
+        Du brauchst eine Quittung? Kein Problem! Einfach das Formular ausfüllen, und die Spendenquittung kommt 2026 zu dir.
+      </p>
+      <a class="button" href="https://forms.office.com/r/CT2dZhGT5E" target="_blank">
+        Formular öffnen 📄
+      </a>
+    </section>
+
+    <section>
+      <h2>Ein riesiges Dankeschön 💚</h2>
+      <p>
+        Es bedeutet mir wahnsinnig viel, wenn du mich begleitest – ob durch eine Spende, Worte der Ermutigung oder das Teilen dieser Seite.
+      </p>
+    </section>
+
+    <div class="footer">
+      &copy; 2025 Albert Montag
+    </div>
+  </main>
+
+  <script>
+    function copyIBAN() {
+      const ibanText = document.getElementById('iban').textContent;
+      navigator.clipboard.writeText(ibanText).then(() => {
+        alert('IBAN kopiert ✅');
+      });
+    }
+
+    // Hier kannst du die Werte anpassen:
+    const spendenstand = 0;      // <- aktuellen Stand hier eintragen, z.B. 1234
+    const spendenziel = 3950;    // <- Zielbetrag
+
+    // Anzeige aktualisieren
+    document.getElementById('betrag-aktuell').textContent = spendenstand.toLocaleString('de-DE') + ' €';
+    document.getElementById('betrag-ziel').textContent = spendenziel.toLocaleString('de-DE') + ' €';
+
+    // Fortschrittsbalken berechnen
+    const prozent = Math.min(100, Math.round((spendenstand / spendenziel) * 100));
+    document.getElementById('progress-bar').style.width = prozent + '%';
+    // Kein Text mehr im Balken
+  </script>
+
+</body>
+</html>
